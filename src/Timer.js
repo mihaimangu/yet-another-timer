@@ -15,22 +15,27 @@ function Timer(){
 
         if(running){
             x = setInterval(() => {
-                console.log('run timeout')
+                console.log('run timeout', timer)
+                setTimer((t) => t + 1)
             }, 1000)
         }
-   
 
         return () => {
             clearInterval(x);
         }
     }, [running])
 
+    const resetTimer = () => {
+        setTimer(0);
+        setRunning(false);
+    }
+
 
     return <div>
-        <p>This is the timer description</p>
+        <p>Just a basic react timer</p>
         <div>{timer}</div>
         <button onClick={() => toggleRunning()}>{running ? "Stop": "Start"}</button>
-        <button>Reset</button>
+        <button onClick={() => resetTimer()}>Reset</button>
     </div>
 }
 
