@@ -34,8 +34,13 @@ function Timer(){
     return <div>
         <p>Just a basic react timer</p>
         <div>{timer}</div>
-        <button onClick={() => toggleRunning()}>{running ? "Stop": "Start"}</button>
-        <button onClick={() => resetTimer()}>Reset</button>
+        <div>
+            <button onClick={() => toggleRunning()}>{running ? "Stop": "Start"}</button>
+            <button onClick={() => resetTimer()}>Reset</button>
+        </div>
+        <div>
+            <button disabled={running}>Start from</button>
+        </div>
     </div>
 }
 
